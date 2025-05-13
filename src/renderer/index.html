@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" http-equiv="Content-Security-Policy" content="default-src 'self';
+               script-src 'self';
+               style-src 'self' 'unsafe-inline';
+               img-src 'self' data:;">
+    <title>Summoning Stone Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="window-container">
+        <div class="title-bar">
+            <div class="title-text">Summoning Stone Monitor</div>
+            <div class="title-buttons">
+                <div id="btn-settings" class="title-button">⚙</div>
+                <div id="btn-close" class="title-button">X</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="status-row"><strong>Directory:</strong> <span id="directory-value">None</span></div>
+            <div class="feedback-row"><span id="detection-feedback" class="feedback-text"></span></div>
+            <div class="button-group">
+                <button id="btn-choose">Choose Manually</button>
+                <button id="btn-detect">Attempt Auto-Detect of Directory</button>
+            </div>
+
+            <div class="status-row"><strong>Monitoring:</strong> <span id="monitoring-value">Stopped</span></div>
+            <div class="feedback-row"><span id="monitoring-error" class="feedback-text error-text"></span></div>
+            <div class="button-group">
+                <button id="btn-start">Start</button>
+                <button id="btn-stop">Stop</button>
+            </div>
+
+            <hr style="border-color:rgba(255,255,255,.1);margin:10px 0">
+            <h2>Detected Devices</h2>
+            <ul id="phones-list">
+                <li id="no-phones-msg" style="background:none;color:#aaa;text-align:center">Waiting for devices...</li>
+            </ul>
+
+            <hr style="border-color:rgba(255,255,255,.1);margin:10px 0">
+            <h2 id="toggle-log" style="cursor:pointer">Event Log +</h2>
+            <button id="btn-clear-log" disabled style="margin-bottom:6px;">Clear Log</button>
+            <ul id="log-list"
+                style="list-style:none;padding:0;margin:0 0 4px 0;max-height:120px;overflow-y:auto;display:none;background:rgba(0,0,0,.15);border-radius:4px">
+            </ul>
+        </div>
+    </div>
+
+    <div id="auto-modal">
+        <div>
+            <p id="auto-modal-text" style="margin:0 0 18px"></p>
+            <button id="auto-modal-ok"
+                style="padding:6px 16px;border:none;border-radius:4px;background:#ff4444;color:#fff;cursor:pointer">OK</button>
+        </div>
+    </div>
+
+    <div id="settings-modal">
+        <div>
+            <h2 style="margin:0 0 10px;font-size:1rem;">Settings</h2>
+            <label style="display:flex;align-items:center;gap:6px;margin-bottom:8px;">
+                <input type="checkbox" id="chk-delete-processed">
+                Delete screenshots after processing
+            </label>
+            <label style="display:flex;align-items:center;gap:6px;margin-bottom:18px;">
+                <input type="checkbox" id="chk-minimize-tray">
+                Minimize to tray on close
+            </label>
+            <button id="settings-close"
+                style="padding:6px 16px;border:none;border-radius:4px;background:#555;color:#fff;cursor:pointer">Close</button>
+        </div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+
+</html>
