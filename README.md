@@ -4,7 +4,7 @@
 
 **Android application still under development. If you'd like to be a tester, please join the google group to get access: https://groups.google.com/u/2/g/summoning-stone-android**
 
-**Summoning Stone** is a desktop application built with Electron. It monitors the World of Warcraft screenshot directory for new screenshots and sends a UDP notification to an Android device running the Summoning Stone Android app. It is only functional when used alongside the Summoning Stone World of Warcraft addon and companion Android application.
+**Summoning Stone** is a desktop application built with Electron. It monitors the World of Warcraft screenshot directory for new screenshots and sends a UDP notification to an Android device running the Summoning Stone Android app or the local web server. It is only functional when used alongside the Summoning Stone World of Warcraft addon.
 
 ## Setup Options
 
@@ -37,6 +37,6 @@ This uses `electron-builder` to generate a standalone executable in the `dist` f
 ## Usage
 
 - The app will try to detect the default WoW screenshot path. If not found, you can manually set it.
-- The Android app must be connected to the same local network and will be auto-detected by the app.
-- UDP packets are sent to the device whenever a screenshot is detected, triggering a notification alert.
-- You can set the application to automatically minimize to the system tray in the settings menu. You can also automatically delete processed screenshots.
+- If using the android application, it must be connected to the same local network and will be auto-detected by the desktop application.
+- If not using the android application, a local web server will be created that you can browse to using any device on the same network.
+- You can change between using the android application, web server or both in settings.
