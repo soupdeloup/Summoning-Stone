@@ -11,7 +11,7 @@
 ### Option 1: Clone and Install
 
 ```bash
-git clone https://github.com/soupdeloup/summoning_stone.git
+git clone https://github.com/soupdeloup/summoning-stone.git
 cd summoning_stone
 npm install
 ```
