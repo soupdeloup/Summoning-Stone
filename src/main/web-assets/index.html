@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="theme-color" content="#0a0a0a">
+  <title>Summoning Stone Notifications</title>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon" href="/images/favicon.ico">
+</head>
+<body>
+  <h1>Summoning Stone Notifications</h1>
+  
+  <div id="mobile-warning-banner">
+    <p><strong>Important:</strong> Please keep this page open on your mobile device to receive alerts.</p>
+  </div>
+  
+  <div id="vibration-controls" class="vibration-controls">
+    <button id="stop-vibration" class="stop-vibration-btn">Stop & Silence Notifications</button>
+  </div>
+  
+  <div id="notifications" class="notifications">
+    <div class="no-notifications">Waiting for notifications...</div>
+  </div>
+  
+  <div id="interaction-prompt" class="interaction-prompt" style="display: none;">
+     <div class="prompt-content">
+       <h2>Tap to enable vibration/audio notifications</h2>
+       <button id="enable-interaction" class="enable-btn">Enable Alerts</button>
+     </div>
+  </div>
+
+  <audio id="notification-sound" preload="auto">
+    <source src="/audio/notification.mp3" type="audio/mpeg">
+  </audio>
+  
+  <script src="/js/app.js"></script>
+</body>
+</html>

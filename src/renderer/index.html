@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" http-equiv="Content-Security-Policy" content="default-src 'self';
+               script-src 'self' './lib/qrcode.min.js';
+               style-src 'self' 'unsafe-inline';
+               img-src 'self' data:;">
+    <title>Summoning Stone Monitor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="window-container">
+        <div class="title-bar">
+            <div class="title-text">Summoning Stone Monitor</div>
+            <div class="title-buttons">
+                <div id="btn-settings" class="title-button">⚙</div>
+                <div id="btn-close" class="title-button">X</div>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2>Monitoring Control</h2>
+            <div class="status-row"><strong>Status:</strong> <span id="monitoring-value">Stopped</span></div>
+            <div class="feedback-row"><span id="monitoring-error" class="feedback-text error-text"></span></div>
+            <div class="button-group monitoring-actions">
+                <button id="btn-start">Start Monitoring</button>
+                <button id="btn-stop">Stop Monitoring</button>
+            </div>
+
+            <h2>Screenshot Directory</h2>
+            <div class="status-row"><strong>Current Directory:</strong> <span id="directory-value">None</span></div>
+            <div class="feedback-row"><span id="detection-feedback" class="feedback-text"></span></div>
+            <div class="button-group">
+                <button id="btn-choose">Choose Manually</button>
+                <button id="btn-detect">Attempt Auto-Detect</button>
+            </div>
+
+            <h2>Web Interface</h2>
+            <div class="status-row">
+                <strong>Status:</strong> <span id="web-server-status">Stopped</span>
+            </div>
+            <div class="status-row">
+                <strong>URL:</strong> <a id="web-server-url" href="#" target="_blank"></a>
+            </div>
+            <div class="button-group web-server-actions-group">
+                <button id="btn-toggle-web-server">Start Web Server</button>
+                <button id="btn-qr-code">Show QR Code</button>
+            </div>
+            <div id="qrcode-container"></div>
+            
+            <div id="mobile-devices-section">
+                <hr />
+                <h2>Detected Mobile Devices</h2>
+                <ul id="phones-list">
+                    <li id="no-phones-msg">Waiting for devices...</li>
+                </ul>
+            </div>
+
+            <div class="log-container">
+                <hr />
+                <h2 id="toggle-log">Event Log +</h2>
+                <button id="btn-clear-log" disabled>Clear Log</button>
+                <ul id="log-list">
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="auto-modal">
+        <div>
+            <p id="auto-modal-text"></p>
+            <button id="auto-modal-ok">OK</button>
+        </div>
+    </div>
+
+    <div id="settings-modal">
+        <div>
+            <h2>Settings</h2>
+            <label>
+                <input type="checkbox" id="chk-delete-processed">
+                Delete screenshots after processing
+            </label>
+            <label class="mb-18">
+                <input type="checkbox" id="chk-minimize-tray">
+                Minimize to tray on close
+            </label>
+
+            <fieldset>
+                <legend>Notification Method</legend>
+                <label>
+                    <input type="radio" name="notification-method" id="notification-method-android" value="android">
+                    Android application
+                </label>
+                <label>
+                    <input type="radio" name="notification-method" id="notification-method-web" value="web">
+                    Web Server
+                </label>
+                <label>
+                    <input type="radio" name="notification-method" id="notification-method-both" value="both">
+                    Both
+                </label>
+            </fieldset>
+
+            <h3>
+                Advanced
+            </h3>
+            <label class="mb-18">
+                <input type="checkbox" id="chk-show-event-log">
+                Show Event Log section
+            </label>
+
+            <button id="settings-close">Close</button>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+    <script src="./lib/qrcode.min.js"></script>
+</body>
+
+</html>

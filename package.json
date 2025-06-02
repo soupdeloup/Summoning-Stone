@@ -1,0 +1,35 @@
+{
+    "name": "summoning-stone",
+    "version": "1.0.0",
+    "description": "A desktop utility for the Summoning Stone World of Warcraft addon.",
+    "author": "Soupdeloup",
+    "main": "src/main/index.js",
+    "scripts": {
+        "start": "electron .",
+        "build": "electron-builder"
+    },
+    "build": {
+        "appId": "com.summoning-stone",
+        "productName": "Summoning-Stone",
+        "directories": {
+            "buildResources": "buildResources"
+        },
+        "icon": "buildResources/icon.png",
+        "win": {
+            "target": "portable"
+        },
+        "portable": {
+            "artifactName": "${productName}-v${version}.exe",
+            "requestExecutionLevel": "user"
+        }
+    },
+    "dependencies": {
+        "bonjour": "^3.3.0",
+        "chokidar": "^3.5.3",
+        "sharp": "^0.34.1"
+    },
+    "devDependencies": {
+        "electron": "^25.5.0",
+        "electron-builder": "^26.0.12"
+    }
+}

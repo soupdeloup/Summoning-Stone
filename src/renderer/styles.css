@@ -1,0 +1,374 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    font-family: "Segoe UI", Roboto, sans-serif;
+    background: transparent;
+}
+
+.window-container {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #2b2b2d, #3a3a3c);
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-bar {
+    -webkit-app-region: drag;
+    height: 28px;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgba(255, 255, 255, .07);
+    flex-shrink: 0;
+}
+
+.title-text {
+    color: #f1f1f1;
+    font-size: .9rem;
+}
+
+.title-buttons {
+    -webkit-app-region: no-drag;
+    display: flex;
+}
+
+.title-button {
+    width: 20px;
+    height: 20px;
+    margin-left: 6px;
+    text-align: center;
+    line-height: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    border: 1px solid #666;
+    background: #444;
+    color: #fff;
+    font-size: .8rem;
+    transition: background .2s, border .2s;
+}
+
+.title-button:hover {
+    background: #ff4444;
+    border-color: #ff4444;
+}
+
+.content {
+    padding: 12px;
+    color: #e2e2e2;
+    padding-bottom: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.content h2 {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    margin-top: 14px;
+}
+
+.content h2 + h2,
+.content hr + h2 {
+    margin-top: 20px;
+}
+
+.status-row,
+.feedback-row {
+    margin: 4px 0;
+    font-size: .9rem;
+}
+
+#web-server-url {
+    display: none;
+    font-size: 0.9em;
+    color: #80a0ff;
+    word-break: break-all;
+}
+
+#btn-qr-code { /* Ensures it's hidden by default like the URL */
+    display: none;
+}
+
+.button-group {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+button {
+    -webkit-app-region: no-drag;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 5px;
+    background: #555;
+    color: #fff;
+    cursor: pointer;
+    font-size: .85rem;
+    transition: background .15s;
+}
+
+button:hover {
+    background: #666;
+}
+
+button:disabled {
+    background: #404040;
+    color: #888;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.monitoring-actions {
+    margin-top: 10px;
+    margin-bottom: 4px;
+}
+
+#btn-start,
+#btn-stop {
+    padding: 10px 18px;
+    font-size: 0.95rem;
+    font-weight: bold;
+    border-radius: 6px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    border: none;
+}
+
+#btn-start {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#btn-start:hover {
+    background-color: #45a049;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+#btn-start:disabled {
+    background-color: #526d53;
+    color: #a0a0a0;
+}
+
+#btn-stop {
+    background-color: #f44336;
+    color: white;
+}
+
+#btn-stop:hover {
+    background-color: #e53935;
+    box-shadow: 0 3px 7px rgba(0, 0, 0, 0.3);
+}
+
+#btn-stop:disabled {
+    background-color: #8c4c48;
+    color: #a0a0a0;
+}
+
+#btn-start:active,
+#btn-stop:active {
+    transform: translateY(1px);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+#directory-value {
+    word-break: break-all;
+}
+
+#phones-list {
+    list-style: none;
+    padding: 0;
+    margin: 6px 0 0;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: rgba(0, 0, 0, .15);
+    border-radius: 4px;
+    flex-shrink: 0;
+}
+
+#phones-list li {
+    background: rgba(255, 255, 255, .1);
+    padding: 6px 8px;
+    margin: 4px 0;
+    border-radius: 4px;
+    font-size: .9rem;
+}
+
+#no-phones-msg {
+    background: none;
+    color: #aaa;
+    text-align: center;
+    padding: 6px 8px;
+    margin: 4px 0;
+}
+
+.feedback-text {
+    font-size: .8rem;
+    color: #aaa;
+    min-height: 1.1em;
+}
+
+.error-text {
+    color: #ff8080;
+    font-weight: 700;
+}
+
+.content hr {
+    border: none;
+    height: 1px;
+    background-color: rgba(255, 255, 255, .1);
+    margin: 15px 0 10px;
+}
+
+.log-container hr {
+    margin: 10px 0;
+}
+
+#auto-modal,
+#settings-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .6);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+}
+
+#settings-modal {
+    z-index: 10000;
+}
+
+#auto-modal > div,
+#settings-modal > div {
+    background: #2b2b2d;
+    padding: 20px 28px;
+    border-radius: 8px;
+    text-align: center;
+    color: #fff;
+}
+
+#auto-modal > div { max-width: 280px; }
+#settings-modal > div { max-width: 320px; }
+
+#auto-modal-text {
+    margin: 0 0 18px;
+    text-align: center;
+}
+
+#auto-modal-ok {
+    padding: 6px 16px;
+    border:none;
+    border-radius:4px;
+    background:#ff4444;
+    color:#fff;
+    cursor:pointer;
+}
+#auto-modal-ok:hover {
+    background: #e03030;
+}
+
+#settings-modal h2 {
+    margin: 0 0 10px;
+    font-size: 1rem;
+    text-align: center;
+}
+
+#settings-modal label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    text-align: left;
+}
+
+#settings-modal label.mb-18,
+#settings-modal fieldset {
+    margin-bottom: 18px;
+}
+
+#settings-modal fieldset {
+    border: 1px solid #444;
+    padding: 10px;
+    border-radius: 4px;
+    text-align: left;
+}
+
+#settings-modal fieldset legend {
+    padding: 0 5px;
+    color: #ccc;
+}
+
+#settings-modal h3 {
+    font-size: 0.9rem;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #ccc;
+    font-weight: normal;
+    border-bottom: 1px solid #444;
+    padding-bottom: 3px;
+}
+
+#settings-close {
+    padding: 6px 16px;
+}
+
+.log-container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+#toggle-log {
+    cursor: pointer;
+}
+
+#btn-clear-log {
+    margin-bottom: 6px;
+}
+
+#log-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 4px 0;
+    background: rgba(0,0,0,.15);
+    border-radius: 4px;
+    display: none;
+    flex-grow: 1;
+    min-height: 100px;
+    overflow-y: auto;
+}
+
+#log-list li {
+    background: rgba(255, 255, 255, .1);
+    padding: 4px 8px;
+    margin: 3px 0;
+    border-radius: 4px;
+    font-size: .85rem;
+    word-break: break-all;
+}
+
+#qrcode-container {
+    display: none;
+    margin-top: 8px;
+    margin-bottom: 15px;
+    text-align: center;
+    background-color: #333333;
+    padding: 10px;
+    border-radius: 5px;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
