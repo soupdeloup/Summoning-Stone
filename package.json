@@ -1,6 +1,6 @@
 {
   "name": "summoning-stone",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A desktop utility for the Summoning Stone World of Warcraft addon.",
   "author": "Soupdeloup",
   "main": "src/main/index.js",
