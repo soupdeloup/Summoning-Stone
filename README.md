@@ -6,7 +6,11 @@
 
 ## Setup Options
 
-### Option 1: Clone and Install
+### Option 1: Download the standalone .exe file from the 'Releases' section of this Github page
+
+*Please note* that the exe is unsigned, which means that you'll probably get Microsoft/anti-virus popups saying the app developer is unknown and that the app may be unsafe. You can ignore these warnings and run application, or you can use option 1 to copy and run the code yourself.
+
+### Option 2: Clone and Install
 
 ```bash
 git clone https://github.com/soupdeloup/summoning-stone.git
@@ -27,10 +31,6 @@ npm run build
 ```
 
 This uses `electron-builder` to generate a standalone executable in the `dist` folder.
-
-### Option 2: Download the standalone executable from the 'Releases' section of this Github page
-
-*Please note* that the exe is unsigned, which means that you'll probably get Microsoft/anti-virus popups saying the app developer is unknown and that the app may be unsafe. You can ignore these warnings and run application, or you can use option 1 to copy and run the code yourself.
 
 ## Usage
 
