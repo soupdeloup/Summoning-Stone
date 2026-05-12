@@ -34,7 +34,7 @@ This uses `electron-builder` to generate a standalone executable in the `dist` f
 
 ## Usage
 
-- Ensure the Summoning Stone WoW addon is installed into your 'World of Warcraft\\_retail_\Interface\AddOns' folder (or use your preferred mod manager).
+- Ensure the Summoning Stone WoW addon is installed into your `World of Warcraft\_retail_\Interface\AddOns` folder (or use your preferred mod manager).
 - The app will try to detect the default WoW screenshot path. If not found, you can manually set it.
 - Click either the Android or Apple store link and download the ntfy app.
 - Once you have the app installed, use your phone camera to scan the main QR code to subscribe to the ntfy notification room.
