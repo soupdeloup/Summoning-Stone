@@ -1,7 +1,7 @@
 module.exports = {
   DEFAULTS: {
     deleteAfterProcessing: true,
-    minimizeToTray:        true,
+    minimizeToTray:        false,
     autoStartMonitoring:   false,
     autoDetectModalShown:  false,
     showEventLog:          false,

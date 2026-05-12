@@ -96,7 +96,18 @@ function showStoreQR(platform) {
   showModal(storeQrModal);
 }
 
-$('btn-test').addEventListener('click', () => window.electronAPI.sendTestNotification());
+$('btn-test').addEventListener('click', () => {
+  const btn = $('btn-test');
+  if (btn.disabled) return;
+  btn.disabled = true;
+  const original = btn.textContent;
+  btn.textContent = '. . .';
+  window.electronAPI.sendTestNotification();
+  setTimeout(() => {
+    btn.textContent = '✓';
+    setTimeout(() => { btn.textContent = original; btn.disabled = false; }, 400);
+  }, 500);
+});
 $('btn-regenerate').addEventListener('click', () => showModal($('regen-modal')));
 $('regen-cancel') .addEventListener('click', () => hideModal($('regen-modal')));
 $('regen-confirm').addEventListener('click', async () => {
