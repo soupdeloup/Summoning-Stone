@@ -28,7 +28,6 @@ function getMonitoringStatus() {
 // how much of the screenshot to extract for barcode reading
 const STRIP_HEIGHT_RATIO = 0.05;  // fraction of image height
 const STRIP_MAX_HEIGHT   = 120;   // px cap
-const STRIP_MAX_WIDTH    = 2400;  // px cap (covers 4K at low UI scale)
 
 // brightness midpoint for black/white classification (0–255)
 const BW_THRESHOLD = 128;
@@ -40,7 +39,7 @@ async function decodeBarcode(filePath) {
   const { width: imgW, height: imgH } = img.getSize();
 
   const stripH = Math.min(Math.floor(imgH * STRIP_HEIGHT_RATIO), STRIP_MAX_HEIGHT);
-  const stripW = Math.min(imgW, STRIP_MAX_WIDTH);
+  const stripW = imgW;
 
   const cropped = img.crop({ x: 0, y: 0, width: stripW, height: stripH });
   const data = cropped.toBitmap();  // RGBA, 4 bytes per pixel
